@@ -1,0 +1,113 @@
+<div class="row" style="min-height: 100%;" *ngIf="controlType==='prospector'">
+    <div class="col-sm-6">
+        <div class="content">
+            <mat-tab-group>
+                <mat-tab label="Docs">
+                    <div style="text-align: justify;">
+                        <app-prospectop-api></app-prospectop-api>
+                        <div style="margin-top: 4%;">
+                            <app-person-search></app-person-search>
+                        </div>
+                        <div style="margin-top: 4%;">
+                            <p style="text-transform: uppercase;font-weight: 550;">HTTP REQUEST</p>
+                            <p>GET <a href="https://prospector.clearbit.com/v1/people/search">https://prospector.clearbit.com/v1/people/search</a></p>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Support" disabled></mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+    <div class="col-sm-6" style="background-color: #292D33;padding-left: 0px; padding-right: 0px;">
+        <app-console-prompt [protoType]="urlExample"></app-console-prompt>
+    </div>
+</div>
+<div class="row" style="min-height: 100%;" *ngIf="controlType==='logo'">
+    <div class="col-sm-6">
+        <div class="content">
+            <mat-tab-group>
+                <mat-tab label="Docs">
+                    <div style="text-align: justify;">
+                        <div style="margin-top: 4%;">
+                            <app-logo-api></app-logo-api>
+
+                            <p style="text-transform: uppercase;font-weight: 550;">HTTP REQUEST</p>
+                            <p>GET <a href="https://logo.clearbit.com/:domain">https://logo.clearbit.com/:domain</a></p>
+                            <p>Where :domain is the domain of the company.</p>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Support" disabled></mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+    <div class="col-sm-6" style="background-color: #292D33;padding-left: 0px; padding-right: 0px;">
+        <app-console-prompt [protoType]="urlExample"></app-console-prompt>
+    </div>
+</div>
+<div class="row" style="min-height: 100%;" *ngIf="controlType==='autocomplete'">
+    <div class="col-sm-6">
+        <div class="content">
+            <mat-tab-group>
+                <mat-tab label="Docs">
+                    <div style="text-align: justify;">
+                        <div style="margin-top: 4%;">
+                            <app-autocomplete-api></app-autocomplete-api>
+
+                            <p style="text-transform: uppercase;font-weight: 550;">HTTP REQUEST</p>
+                            <p>GET <a href="https://autocomplete.clearbit.com/v1/companies/suggest?query=:name">https://autocomplete.clearbit.com/v1/companies/suggest?query=:name</a></p>
+                            <p>Where :name is the partial name of the company.</p>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Support" disabled></mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+    <div class="col-sm-6" style="background-color: #292D33;padding-left: 0px; padding-right: 0px;">
+        <app-console-prompt [protoType]="urlExample"></app-console-prompt>
+    </div>
+</div>
+<div class="row" style="min-height: 100%;" *ngIf="controlType==='name-domain'">
+    <div class="col-sm-6">
+        <div class="content">
+            <mat-tab-group>
+                <mat-tab label="Docs">
+                    <div style="text-align: justify;">
+                        <div style="margin-top: 4%;">
+                            <app-name-to-domain-api></app-name-to-domain-api>
+
+                            <p style="text-transform: uppercase;font-weight: 550;">HTTP REQUEST</p>
+                            <p>GET <a href="https://autocomplete.clearbit.com/v1/companies/suggest?query=:name">https://autocomplete.clearbit.com/v1/companies/suggest?query=:name</a></p>
+                            <p>Where :name is the partial name of the company.</p>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Support" disabled></mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+    <div class="col-sm-6" style="background-color: #292D33;padding-left: 0px; padding-right: 0px;">
+        <app-console-prompt [protoType]="urlExample"></app-console-prompt>
+    </div>
+</div>
+<div class="row" style="min-height: 100%;" *ngIf="controlType==='reveal'">
+    <div class="col-sm-6">
+        <div class="content">
+            <mat-tab-group>
+                <mat-tab label="Docs">
+                    <div style="text-align: justify;">
+                        <div style="margin-top: 4%;">
+                            <p style="text-transform: uppercase;font-weight: 550;">HTTP REQUEST</p>
+                            <p>GET <a href="https://reveal.clearbit.com/v1/companies/find">https://reveal.clearbit.com/v1/companies/find</a></p>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Support" disabled></mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+    <div class="col-sm-6" style="background-color: #292D33;padding-left: 0px; padding-right: 0px;">
+        <app-console-prompt [protoType]="urlExample"></app-console-prompt>
+    </div>
+</div>

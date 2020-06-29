@@ -1,0 +1,21 @@
+<div class="row" style="min-height: 100%;">
+    <div class="col-sm-6">
+        <div class="content">
+            <mat-tab-group>
+                <mat-tab label="Docs">
+                    <div style="text-align: justify;">
+                        <h3>Authentication</h3>
+                        <p>Authentication is done via the API key which you can find in your account settings.</p>
+                        <p>Requests are authenticated using HTTP Basic Auth. Provide your API key as the basic auth username. You do not need to provide a password.</p>
+                        <p>Alternatively you can also pass your API key as a bearer token in an Authorization header.</p>
+                        <p>You can see your account’s API keys, and roll them if necessary, in the dashboard.</p>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Support" disabled></mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+    <div class="col-sm-6" style="background-color: #292D33;padding-left: 0px; padding-right: 0px;">
+        <app-console-prompt [protoType]="errorExaxmple"></app-console-prompt>
+    </div>
+</div>

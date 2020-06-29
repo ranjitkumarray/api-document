@@ -1,0 +1,24 @@
+<div class="row" style="min-height: 100%;">
+    <div class="col-sm-6">
+        <div class="content">
+            <mat-tab-group>
+                <mat-tab label="Docs">
+                    <div style="text-align: justify;">
+                        <div>
+                            <app-request></app-request>
+                        </div>
+
+                        <div style="margin-top: 10%;">
+                            <p style="text-transform: uppercase;font-weight: 550;">url</p>
+                            <p>GET <a href="https://discovery.clearbit.com/v1/companies/search">https://discovery.clearbit.com/v1/companies/search</a></p>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Support" disabled></mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+    <div class="col-sm-6" style="background-color: #292D33;padding-left: 0px; padding-right: 0px;">
+        <app-console-prompt [protoType]="urlExaxmple"></app-console-prompt>
+    </div>
+</div>

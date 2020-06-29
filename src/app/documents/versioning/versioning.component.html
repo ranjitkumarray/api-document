@@ -1,0 +1,38 @@
+<div class="row" style="min-height: 100%;">
+    <div class="col-sm-6">
+        <div class="content">
+            <mat-tab-group>
+                <mat-tab label="Docs">
+                    <div style="text-align: justify;">
+                        <h3>Versioning</h3>
+                        <p>When we make backwards-incompatible changes to any of our APIs, we release new dated versions. Each API we provide has a separate version (listed below).</p>
+                        <p>All requests will use your account API settings, unless you override the API version by sending a API-Version header identifying the API version to use. (For libraries and bindings, this is done by setting an API version property
+                            as in the code examples.)</p>
+                        <p>Any webhooks triggered will also use a request specified version before falling back to your account’s version.</p>
+                        <p>You can visit your dashboard to upgrade your API version. You can also see a full API version changelog here.</p>
+                        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                            <!-- code Column -->
+                            <ng-container matColumnDef="api">
+                                <mat-header-cell *matHeaderCellDef> API</mat-header-cell>
+                                <mat-cell *matCellDef="let element"> {{element.api}} </mat-cell>
+                            </ng-container>
+
+                            <!-- description Column -->
+                            <ng-container matColumnDef="current_version">
+                                <mat-header-cell *matHeaderCellDef> Current version </mat-header-cell>
+                                <mat-cell *matCellDef="let element"> {{element.current_version}} </mat-cell>
+                            </ng-container>
+
+                            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                        </table>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Support" disabled></mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+    <div class="col-sm-6" style="background-color: #292D33;padding-left: 0px; padding-right: 0px;">
+        <app-console-prompt [protoType]="errorExaxmple"></app-console-prompt>
+    </div>
+</div>

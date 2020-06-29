@@ -1,0 +1,45 @@
+<!-- <app-side-bar> -->
+<div class="row" style="min-height: 100%;">
+    <div class="col-sm-6">
+        <div class="content">
+            <mat-tab-group>
+                <mat-tab label="Docs">
+                    <div style="text-align: justify;">
+                        <app-error></app-error>
+                        <div style="margin-top: 10%;">
+                            <h4>HTTP Status codes</h4>
+                            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                                <!-- code Column -->
+                                <ng-container matColumnDef="code">
+                                    <mat-header-cell *matHeaderCellDef> Code</mat-header-cell>
+                                    <mat-cell *matCellDef="let element"> {{element.code}} </mat-cell>
+                                </ng-container>
+
+                                <!-- title Column -->
+                                <ng-container matColumnDef="title">
+                                    <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
+                                    <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+                                </ng-container>
+
+                                <!-- description Column -->
+                                <ng-container matColumnDef="description">
+                                    <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+                                    <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+                                </ng-container>
+
+                                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                            </table>
+                        </div>
+                    </div>
+
+                </mat-tab>
+                <mat-tab label="Support" disabled></mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+    <div class="col-sm-6" style="background-color: #292D33;padding-left: 0px; padding-right: 0px;">
+        <app-console-prompt [protoType]="errorExaxmple"></app-console-prompt>
+    </div>
+</div>
+<!-- </app-side-bar> -->

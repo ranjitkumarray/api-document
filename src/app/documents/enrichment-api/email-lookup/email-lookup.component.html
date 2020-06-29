@@ -1,0 +1,89 @@
+<div class="row" style="min-height: 100%;">
+    <div class="col-sm-6">
+        <div class="content">
+            <mat-tab-group>
+                <mat-tab label="Docs">
+                    <div style="text-align: justify;">
+                        <div style="margin-top: 4%;">
+                            <p style="text-transform: uppercase;font-weight: 550;">EMAIL LOOKUP</p>
+                            <p>
+                                The Person API allows you to look up a person by their email address. Alongside the email address you may also provide any additional attributes you have about the person, such as their given and family names. Including more detail will help us be more
+                                accurate when searching.
+                                <br> The supported parameters are:
+                            </p>
+
+                            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                                <ng-container matColumnDef="param">
+                                    <mat-header-cell *matHeaderCellDef> Param</mat-header-cell>
+                                    <mat-cell *matCellDef="let element"> {{element.param}} </mat-cell>
+                                </ng-container>
+
+                                <ng-container matColumnDef="description">
+                                    <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+                                    <mat-cell *matCellDef="let element">
+                                        <div [innerHTML]="element.description | safeHtml"></div>
+                                    </mat-cell>
+                                </ng-container>
+
+                                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                            </table>
+                        </div>
+                        <div style="margin-top: 10%;">
+                            <p>This endpoint retrieves a person by email address. If we can find the person we’ll return a 200 status containing the record’s attributes.</p>
+                            <p>Sometimes we’ll need to asynchronously lookup the person, in which case we’ll return an empty 202 status. Either try the same request again in a few minutes to get the full response, or register a webhook to be notified when
+                                we’ve finished searching for an email.</p>
+                            <p>If we can’t find any information associated with the email address, we’ll return a 404 status.</p>
+                            <p style="text-transform: uppercase;font-weight: 550;">HTTP REQUEST</p>
+                            <p>GET <a href="https://person.clearbit.com/v2/people/find?email=:email">https://person.clearbit.com/v2/people/find?email=:email</a></p>
+                            <p>(Where :email is the person’s email address)</p>
+                            <p style="text-transform: uppercase;font-weight: 550;">HTTP GET PARAMS</p>
+                            <p>You can also pass the following optional parameters along when looking up people.</p>
+                            <table mat-table [dataSource]="httpGetParams" class="mat-elevation-z8">
+
+                                <ng-container matColumnDef="param">
+                                    <mat-header-cell *matHeaderCellDef> Param</mat-header-cell>
+                                    <mat-cell *matCellDef="let element"> {{element.param}} </mat-cell>
+                                </ng-container>
+
+                                <ng-container matColumnDef="description">
+                                    <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+                                    <mat-cell *matCellDef="let element">
+                                        <div [innerHTML]="element.description | safeHtml"></div>
+                                    </mat-cell>
+                                </ng-container>
+
+                                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                            </table>
+                        </div>
+                        <div style="margin-top: 10%;">
+                            <table mat-table [dataSource]="responseCodes" class="mat-elevation-z8">
+
+                                <ng-container matColumnDef="code">
+                                    <mat-header-cell *matHeaderCellDef> Code</mat-header-cell>
+                                    <mat-cell *matCellDef="let element"> {{element.code}} </mat-cell>
+                                </ng-container>
+
+                                <ng-container matColumnDef="description">
+                                    <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+                                    <mat-cell *matCellDef="let element">
+                                        <div [innerHTML]="element.description | safeHtml"></div>
+                                    </mat-cell>
+                                </ng-container>
+
+                                <mat-header-row *matHeaderRowDef="displayedColumnsresponseCodes"></mat-header-row>
+                                <mat-row *matRowDef="let row; columns: displayedColumnsresponseCodes;"></mat-row>
+                            </table>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Support" disabled></mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+    <div class="col-sm-6" style="background-color: #292D33;padding-left: 0px; padding-right: 0px;">
+        <app-console-prompt [protoType]="errorExaxmple"></app-console-prompt>
+    </div>
+</div>

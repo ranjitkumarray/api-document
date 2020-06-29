@@ -1,0 +1,37 @@
+<div class="row" style="min-height: 100%;">
+    <div class="col-sm-6">
+        <div class="content">
+            <mat-tab-group>
+                <mat-tab label="Docs">
+                    <div style="text-align: justify;">
+                        <div style="margin-top: 4%;">
+                            <p style="text-transform: uppercase;font-weight: 550;">FIELDS</p>
+                            <p>The following fields are supported:</p>
+                            <table mat-table [dataSource]="fieldsSource" class="mat-elevation-z8">
+
+                                <ng-container matColumnDef="param">
+                                    <mat-header-cell *matHeaderCellDef> Param</mat-header-cell>
+                                    <mat-cell *matCellDef="let element"> {{element.param}} </mat-cell>
+                                </ng-container>
+
+                                <ng-container matColumnDef="description">
+                                    <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+                                    <mat-cell *matCellDef="let element">
+                                        <div [innerHTML]="element.description | safeHtml"></div>
+                                    </mat-cell>
+                                </ng-container>
+
+                                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                            </table>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Support" disabled></mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+    <div class="col-sm-6" style="background-color: #292D33;padding-left: 0px; padding-right: 0px;">
+        <app-console-prompt [protoType]="urlExaxmple"></app-console-prompt>
+    </div>
+</div>

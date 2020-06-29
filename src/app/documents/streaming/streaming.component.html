@@ -1,0 +1,23 @@
+<!-- <app-side-bar> -->
+<div class="row" style="min-height: 100%;">
+    <div class="col-sm-6">
+        <div class="content">
+            <mat-tab-group>
+                <mat-tab label="Docs">
+                    <div style="text-align: justify;">
+                        <h4>Streaming</h4>
+                        <p>An alternative to using webhooks is our streaming API. This API is ideal if you don’t mind long lived requests (e.g. you’re making requests to Clearbit from a messaging queue).</p>
+                        <p>When we need to do an asynchronous lookup, say when looking up a person by email address, rather than requiring you to poll the endpoint the streaming API will simply keep the connection open until we have some data.</p>
+                        <p>Requests made to the streaming API will never return a HTTP 202 status response, and can be held open for up to a minute.</p>
+                        <p>The only difference between making calls to the normal and streaming API is the subdomain - person-stream.clearbit.com rather than person.clearbit.com.</p>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Support" disabled></mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+    <div class="col-sm-6" style="background-color: #292D33;padding-left: 0px; padding-right: 0px;">
+        <app-console-prompt [protoType]="streaming"></app-console-prompt>
+    </div>
+</div>
+<!-- </app-side-bar> -->

@@ -1,0 +1,26 @@
+<mat-tab-group>
+    <mat-tab label="Shell">
+        <div *ngFor="let code of protoType?.shell">
+            <p style="color: white;margin-top: 2%;text-align: justify;">{{code?.title}}</p>
+            <app-shell [shell]="code.example"></app-shell>
+        </div>
+    </mat-tab>
+    <mat-tab label="Ruby">
+        <div *ngFor="let code of protoType?.ruby">
+            <p style="color: white;margin-top: 2%;text-align: justify;">{{code?.title}}</p>
+            <app-ruby [ruby]="code.example"></app-ruby>
+        </div>
+    </mat-tab>
+    <mat-tab label="Node">
+        <div *ngFor="let code of protoType?.node">
+            <p style="color: white;margin-top: 2%;text-align: justify;">{{code?.title}}</p>
+            <app-node [node]="code.example"></app-node>
+        </div>
+    </mat-tab>
+    <mat-tab label="Python">
+        <div *ngFor="let code of protoType?.python" id="python">
+            <p style="color: white;margin-top: 2%;text-align: justify;">{{code?.title}}</p>
+            <app-pthon [python]="code.example"></app-pthon>
+        </div>
+    </mat-tab>
+</mat-tab-group>

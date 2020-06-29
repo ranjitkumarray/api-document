@@ -1,0 +1,68 @@
+<div class="row" style="min-height: 100%;">
+    <div class="col-sm-6">
+        <div class="content">
+            <mat-tab-group>
+                <mat-tab label="Docs">
+                    <div style="text-align: justify;">
+                        <div style="margin-top: 4%;">
+                            <app-enrichment-api></app-enrichment-api>
+                            <h4>Combined API</h4>
+                            <p>A common use-case is looking up a person and company simultaneously based on a email address. To save you making two requests to do this, we offer a combined lookup API.</p>
+                            <p>This endpoint expects an email address, and will return an object containing both the person and company (if found). A call to the combined lookup will only count as one API call.</p>
+
+
+
+                            <p style="text-transform: uppercase;font-weight: 550;">HTTP REQUEST</p>
+                            <p>GET<a href="https://person.clearbit.com/v2/combined/find?email=:email">https://person.clearbit.com/v2/combined/find?email=:email</a></p>
+                            <p>(Where :email is the person’s email address)</p>
+                            <p style="text-transform: uppercase;font-weight: 550;">HTTP GET PARAMS</p>
+                            <p>Alongside the email address you may also provide any additional attributes you have about the person, such as their given and family names. Including more detail will help us be more accurate when searching.
+                                <br> The supported parameters are:</p>
+                            <table mat-table [dataSource]="emailLookupData" class="mat-elevation-z8">
+
+                                <ng-container matColumnDef="param">
+                                    <mat-header-cell *matHeaderCellDef> Param</mat-header-cell>
+                                    <mat-cell *matCellDef="let element"> {{element.param}} </mat-cell>
+                                </ng-container>
+
+                                <ng-container matColumnDef="description">
+                                    <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+                                    <mat-cell *matCellDef="let element">
+                                        <div [innerHTML]="element.description | safeHtml"></div>
+                                    </mat-cell>
+                                </ng-container>
+
+                                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                            </table>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10%;">
+                        <p style="text-transform: uppercase;font-weight: 550;">RESPONSE TYPES</p>
+                        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                            <ng-container matColumnDef="code">
+                                <mat-header-cell *matHeaderCellDef> Code</mat-header-cell>
+                                <mat-cell *matCellDef="let element"> {{element.code}} </mat-cell>
+                            </ng-container>
+
+                            <ng-container matColumnDef="description">
+                                <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+                                <mat-cell *matCellDef="let element">
+                                    <div [innerHTML]="element.description | safeHtml"></div>
+                                </mat-cell>
+                            </ng-container>
+
+                            <mat-header-row *matHeaderRowDef="displayedColumnsForHttpParam"></mat-header-row>
+                            <mat-row *matRowDef="let row; columns: displayedColumnsForHttpParam;"></mat-row>
+                        </table>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Support" disabled></mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+    <div class="col-sm-6" style="background-color: #292D33;padding-left: 0px; padding-right: 0px;">
+        <app-console-prompt [protoType]="errorExaxmple"></app-console-prompt>
+    </div>
+</div>

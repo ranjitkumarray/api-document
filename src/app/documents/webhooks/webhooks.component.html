@@ -1,0 +1,11 @@
+<div class="content">
+    <div style="text-align: justify;">
+        <h3>Webhooks</h3>
+        <p>Certain requests, such as looking up an email address, may have an asynchronous response (since there’s some complex background processing involved). For these requests you can either poll the endpoint, or give us a webhook URL you want to be
+            called when the request has finished processing.
+        </p>
+        <p>You can set a webhook URL endpoint in your account settings to be used with all requests. Alternatively, you can pass along a webhook_url query parameter along with requests.</p>
+        <p>To link up your requests to webhooks you can pass a webhook_id parameter when making these calls, containing a custom defined webhook identifier. We’ll pass this identifier back to you with the webhook request.</p>
+        <p>If you return anything other than a HTTP 200 status to the webhook POST then we’ll try to deliver the webhook up to 5 times with an exponential backoff.</p>
+    </div>
+</div>

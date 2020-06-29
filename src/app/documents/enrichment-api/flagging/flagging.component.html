@@ -1,0 +1,76 @@
+<div class="row" style="min-height: 100%;">
+    <div class="col-sm-6">
+        <div class="content">
+            <mat-tab-group>
+                <mat-tab label="Docs">
+                    <div style="text-align: justify;">
+                        <div style="margin-top: 4%;">
+                            <p style="text-transform: uppercase;font-weight: 550;">FLAGGING</p>
+                            <div *ngIf="flagType==='person-api'">
+                                <p>While we do our best to always return accurate data, we’re only <del>lizards</del> human and sometimes we make mistakes. This is especially true when the lookup is a fuzzy match rather than an exact one.</p>
+                                <p>This endpoint allows you to let us know if a person doesn’t seem quite right. You can flag a person as incorrect and also optionally pass through a correct set of attributes.</p>
+                                <p>We look into all the flagging we receive and incorporate fixes into future results.</p>
+                                <p style="text-transform: uppercase;font-weight: 550;">HTTP REQUEST</p>
+                                <p>POST <a href="https://person.clearbit.com/v1/people/:id/flag">https://person.clearbit.com/v1/people/:id/flag</a></p>
+                                <p>Where :id is the id of the person you’d like to flag as inaccurate.</p>
+                                <p style="text-transform: uppercase;font-weight: 550;">HTTP POST PARAMS</p>
+                                <p>You can also optionally pass to us corrected versions of any of the person’s attributes we sent you.</p>
+                            </div>
+                            <div *ngIf="flagType==='company-api'">
+                                <p>While we do our best to always return accurate data sometimes we can make mistakes. The flagging endpoint allows you to let us know if a company doesn’t seem quite right. You can flag a company as incorrect and also optionally
+                                    pass through a correct set of attributes.</p>
+                                <p>We look into all the flagging we receive and incorporate fixes into future results.</p>
+                                <p style="text-transform: uppercase;font-weight: 550;">HTTP REQUEST</p>
+                                <p>POST <a href="https://company.clearbit.com/v2/companies/flag?domain=:domain">https://company.clearbit.com/v2/companies/flag?domain=:domain</a></p>
+                                <p>Where :domain is the domain of the company you’d like to flag as inaccurate.</p>
+                                <p style="text-transform: uppercase;font-weight: 550;">HTTP POST PARAMS</p>
+                                <p>You can also optionally pass to us corrected versions of any of the company’s attributes we sent you.</p>
+                            </div>
+                            <table mat-table [dataSource]="responseCodeType" class="mat-elevation-z8">
+
+                                <ng-container matColumnDef="param">
+                                    <mat-header-cell *matHeaderCellDef> Param</mat-header-cell>
+                                    <mat-cell *matCellDef="let element"> {{element.param}} </mat-cell>
+                                </ng-container>
+
+                                <ng-container matColumnDef="description">
+                                    <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+                                    <mat-cell *matCellDef="let element">
+                                        <div [innerHTML]="element.description | safeHtml"></div>
+                                    </mat-cell>
+                                </ng-container>
+
+                                <mat-header-row *matHeaderRowDef="displayedColumnsForFlaging"></mat-header-row>
+                                <mat-row *matRowDef="let row; columns: displayedColumnsForFlaging;"></mat-row>
+                            </table>
+                        </div>
+                        <div style="margin-top: 10%;">
+                            <p style="text-transform: uppercase;font-weight: 550;">RESPONSE TYPES</p>
+                            <table mat-table [dataSource]="flags" class="mat-elevation-z8">
+
+                                <ng-container matColumnDef="code">
+                                    <mat-header-cell *matHeaderCellDef>Code</mat-header-cell>
+                                    <mat-cell *matCellDef="let element"> {{element.code}} </mat-cell>
+                                </ng-container>
+
+                                <ng-container matColumnDef="description">
+                                    <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+                                    <mat-cell *matCellDef="let element">
+                                        <div [innerHTML]="element.description | safeHtml"></div>
+                                    </mat-cell>
+                                </ng-container>
+
+                                <mat-header-row *matHeaderRowDef="displayedColumnsResponseType"></mat-header-row>
+                                <mat-row *matRowDef="let row; columns: displayedColumnsResponseType;"></mat-row>
+                            </table>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Support" disabled></mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+    <div class="col-sm-6" style="background-color: #292D33;padding-left: 0px; padding-right: 0px;">
+        <app-console-prompt [protoType]="flagingPromptData"></app-console-prompt>
+    </div>
+</div>

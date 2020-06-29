@@ -1,0 +1,24 @@
+<div class="row" style="min-height: 100%;">
+    <div class="col-sm-6">
+        <div class="content">
+            <mat-tab-group>
+                <mat-tab label="Docs">
+                    <div style="text-align: justify;">
+                        <div style="margin-top: 4%;">
+                            <p style="text-transform: uppercase;font-weight: 550;">Specifying your own logo</p>
+                            <p>While we normally try and detect a company’s logo using signals like their Twitter or
+                                Facebook account, if you control a domain you can indicate which logo you’d like used.
+                            </p>
+                            <p>Just add a og:logo Open Graph meta tag to your index page under the root domain, and
+                                point its content attribute to your logo of choice. We support png and jpg formats.</p>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Support" disabled></mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+    <div class="col-sm-6" style="background-color: #292D33;padding-left: 0px; padding-right: 0px;">
+        <app-console-prompt [protoType]="ownImageExample"></app-console-prompt>
+    </div>
+</div>

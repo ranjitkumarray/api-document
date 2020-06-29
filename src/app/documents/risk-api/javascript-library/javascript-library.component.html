@@ -1,0 +1,22 @@
+<div class="row" style="min-height: 100%;">
+    <div class="col-sm-6">
+        <div class="content">
+            <mat-tab-group>
+                <mat-tab label="Docs">
+                    <div style="text-align: justify;">
+                        <div style="margin-top: 4%;">
+                            <app-risk-api></app-risk-api>
+                            <p style="text-transform: uppercase;font-weight: 550;">JavaScript library</p>
+                            <p>There are two components to the Risk API: a HTTP REST API and a JavaScript library. Using the JS library in conjunction with the REST API is required to generate risk scores.</p>
+                            <p>Place the piece of JavaScript referenced to the right on your checkout or signup page (before you make a request to our REST API).</p>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Support" disabled></mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+    <div class="col-sm-6" style="background-color: #292D33;padding-left: 0px; padding-right: 0px;">
+        <app-console-prompt [protoType]="riskJavaScriptExample"></app-console-prompt>
+    </div>
+</div>

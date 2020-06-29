@@ -1,0 +1,418 @@
+<mat-sidenav-container class="containers" autosize fxFlexFill>
+
+    <mat-sidenav #sidenav class="example-sidenav " mode="side" [(opened)]="opened" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
+        <mat-toolbar class="header-box-shadow">
+            <img src="../assets/images/digiapt.png" width="auto" height="auto" (click)="goBackToHome()">
+
+        </mat-toolbar>
+        <mat-nav-list class="no-shadow my-0">
+            <mat-list-item class="ml-0 contentPadd" dense [routerLink]="['/api-doc/api-referrance']">
+                <a [routerLinkActive]="['active','navigate-active']"> API reference </a>
+            </mat-list-item>
+
+        </mat-nav-list>
+        <mat-nav-list class="no-shadow my-0">
+            <mat-list-item class="ml-0 contentPadd" dense [routerLink]="['/api-doc/authentication']">
+                <a [routerLinkActive]="['active','navigate-active']"> Authentication</a>
+            </mat-list-item>
+        </mat-nav-list>
+
+
+        <mat-accordion multi="true" [displayMode]="displayMode">
+            <mat-expansion-panel class="no-shadow">
+                <mat-expansion-panel-header fxLayout="row" [expandedHeight]="expandHeight" [collapsedHeight]="collapseHeight">
+                    <mat-panel-title>
+                        Error
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-nav-list class="ml-0" dense>
+                    <mat-list-item class="padd" [routerLink]="['/api-doc/error/httpStatus']">
+                        <a [routerLinkActive]="['active','navigate-active']">HTTP status codes</a>
+                    </mat-list-item>
+                    <mat-list-item class="padd" [routerLink]="['/api-doc/error/errorType']">
+                        <a [routerLinkActive]="['active','navigate-active']">Error types</a>
+                    </mat-list-item>
+                </mat-nav-list>
+            </mat-expansion-panel>
+
+            <mat-nav-list class="no-shadow my-0">
+                <mat-list-item class="ml-0 contentPadd" dense [routerLink]="['/api-doc/rate-limit']">
+                    <a [routerLinkActive]="['active','navigate-active']">Rate limiting</a>
+                </mat-list-item>
+            </mat-nav-list>
+            <mat-nav-list class="no-shadow my-0">
+                <mat-list-item class="ml-0 contentPadd" dense [routerLink]="['/api-doc/versioning']">
+                    <a [routerLinkActive]="['active','navigate-active']">Versioning</a>
+                </mat-list-item>
+            </mat-nav-list>
+
+
+            <mat-expansion-panel class="no-shadow my-0">
+                <mat-expansion-panel-header fxLayout="row" [expandedHeight]="expandHeight" [collapsedHeight]="collapseHeight">
+                    <mat-panel-title>
+                        Webhooks
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-nav-list class="ml-0" dense>
+                    <mat-list-item class="padd" [routerLink]="['/api-doc/webhooks/response-post-body']">
+                        <a [routerLinkActive]="['active','navigate-active']"> Response post body</a>
+                    </mat-list-item>
+                    <mat-list-item class="padd" [routerLink]="['/api-doc/webhooks/securing-webhooks']">
+                        <a [routerLinkActive]="['active','navigate-active']">Securing webhooks </a>
+                    </mat-list-item>
+                </mat-nav-list>
+            </mat-expansion-panel>
+
+
+            <mat-nav-list class="no-shadow my-0">
+                <mat-list-item class="ml-0 contentPadd" dense [routerLink]="['/api-doc/streaming']">
+                    <a [routerLinkActive]="['active','navigate-active']">Streamig</a>
+                </mat-list-item>
+            </mat-nav-list>
+
+
+            <mat-expansion-panel class="no-shadow my-0">
+                <mat-expansion-panel-header fxLayout="row" [expandedHeight]="expandHeight" [collapsedHeight]="collapseHeight">
+                    <mat-panel-title>
+                        OAuth
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-nav-list class="ml-0" dense>
+                    <mat-list-item class="padd" [routerLink]="['/api-doc/auth/request-token']">
+                        <a [routerLinkActive]="['active','navigate-active']">Create request token</a>
+                    </mat-list-item>
+                    <mat-list-item class="padd" [routerLink]="['/api-doc/auth/qury-params/1']">
+                        <a [routerLinkActive]="['active','navigate-active']">Query params</a>
+                    </mat-list-item>
+                    <mat-list-item class="padd" [routerLink]="['/api-doc/auth/access-token']">
+                        <a [routerLinkActive]="['active','navigate-active']">Create access token</a>
+                    </mat-list-item>
+                    <mat-list-item class="padd" [routerLink]="['/api-doc/auth/qury-params/2']">
+                        <a [routerLinkActive]="['active','navigate-active']">Query params</a>
+                    </mat-list-item>
+                </mat-nav-list>
+            </mat-expansion-panel>
+
+
+            <mat-expansion-panel class="no-shadow my-0">
+                <mat-expansion-panel-header fxLayout="row" [expandedHeight]="expandHeight" [collapsedHeight]="collapseHeight">
+                    <mat-panel-title>
+                        Enrichment API
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-nav-list class="ml-0" dense>
+                    <mat-list-item class="padd" [routerLink]="['/api-doc/enrichment-api/combined-api']">
+                        <a [routerLinkActive]="['active','navigate-active']">Combined API</a>
+                    </mat-list-item>
+                    <mat-expansion-panel class="no-shadow my-0">
+                        <mat-expansion-panel-header fxLayout="row" [expandedHeight]="expandHeight" [collapsedHeight]="collapseHeight" style="padding-left:25px !important">
+                            <mat-panel-title>
+                                Person API
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <mat-nav-list class="ml-0" dense>
+                            <mat-list-item class="padd" [routerLink]="['/api-doc/enrichment-api/attributes/person-api']">
+                                <a [routerLinkActive]="['active','navigate-active']">Attributes</a>
+                            </mat-list-item>
+                            <mat-list-item class="padd" [routerLink]="['/api-doc/enrichment-api/email-lookup']">
+                                <a [routerLinkActive]="['active','navigate-active']">Email lookup</a>
+                            </mat-list-item>
+                            <mat-list-item class="padd" [routerLink]="['/api-doc/enrichment-api/subscribe']">
+                                <a [routerLinkActive]="['active','navigate-active']">Subscribe</a>
+                            </mat-list-item>
+                            <mat-list-item class="padd" [routerLink]="['/api-doc/enrichment-api/flagging/person-api']">
+                                <a [routerLinkActive]="['active','navigate-active']">Flagging</a>
+                            </mat-list-item>
+                        </mat-nav-list>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header fxLayout="row" [expandedHeight]="expandHeight" [collapsedHeight]="collapseHeight" style="padding-left:25px !important">
+                            <mat-panel-title>
+                                Company API
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <mat-nav-list class="ml-0" dense>
+                            <mat-list-item class="padd" [routerLink]="['/api-doc/enrichment-api/attributes/company-api']">
+                                <a [routerLinkActive]="['active','navigate-active']">Attributes</a>
+                            </mat-list-item>
+                            <mat-list-item class="padd" [routerLink]="['/api-doc/enrichment-api/domain-lookup']">
+                                <a [routerLinkActive]="['active','navigate-active']">Domain lookup</a>
+                            </mat-list-item>
+                            <mat-list-item class="padd" [routerLink]="['/api-doc/enrichment-api/flagging/company-api']">
+                                <a [routerLinkActive]="['active','navigate-active']">Flagging</a>
+                            </mat-list-item>
+                        </mat-nav-list>
+                    </mat-expansion-panel>
+                </mat-nav-list>
+            </mat-expansion-panel>
+
+
+            <mat-expansion-panel class="no-shadow my-0">
+                <mat-expansion-panel-header fxLayout="row" [expandedHeight]="expandHeight" [collapsedHeight]="collapseHeight">
+                    <mat-panel-title>
+                        discovery API
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-nav-list class="ml-0" dense>
+                    <mat-list-item class="padd" [routerLink]="['/api-doc/discovery-api/attrbutes/discovery']">
+                        <a [routerLinkActive]="['active','navigate-active']">Attributes</a>
+                    </mat-list-item>
+                    <mat-expansion-panel class="no-shadow my-0">
+                        <mat-expansion-panel-header fxLayout="row" [expandedHeight]="expandHeight" [collapsedHeight]="collapseHeight" style="padding-left:25px !important">
+                            <mat-panel-title>
+                                Request
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <mat-nav-list class="ml-0" dense>
+                            <mat-list-item class="padd" [routerLink]="['/api-doc/discovery-api/url']">
+                                <a [routerLinkActive]="['active','navigate-active']">URL</a>
+                            </mat-list-item>
+                            <mat-list-item class="padd" [routerLink]="['/api-doc/discovery-api/response-code/discovery']">
+                                <a [routerLinkActive]="['active','navigate-active']">Response code</a>
+                            </mat-list-item>
+                            <mat-list-item class="padd" [routerLink]="['/api-doc/discovery-api/params/discovery']">
+                                <a [routerLinkActive]="['active','navigate-active']">Params</a>
+                            </mat-list-item>
+                            <mat-list-item class="padd" [routerLink]="['/api-doc/discovery-api/pagination']">
+                                <a [routerLinkActive]="['active','navigate-active']">Pagination</a>
+                            </mat-list-item>
+                            <mat-list-item class="padd" [routerLink]="['/api-doc/discovery-api/sorting']">
+                                <a [routerLinkActive]="['active','navigate-active']">Sorting</a>
+                            </mat-list-item>
+                        </mat-nav-list>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel class="no-shadow my-0">
+                        <mat-expansion-panel-header fxLayout="row" [expandedHeight]="expandHeight" [collapsedHeight]="collapseHeight" style="padding-left:25px !important">
+                            <mat-panel-title>
+                                Queries
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <mat-nav-list class="ml-0" dense>
+                            <mat-list-item class="padd" [routerLink]="['/api-doc/discovery-api/data-type/discovery']">
+                                <a [routerLinkActive]="['active','navigate-active']">Data type</a>
+                            </mat-list-item>
+                            <mat-list-item class="padd" [routerLink]="['/api-doc/discovery-api/fileds/discovery']">
+                                <a [routerLinkActive]="['active','navigate-active']">Fileds</a>
+                            </mat-list-item>
+                            <mat-list-item class="padd" [routerLink]="['/api-doc/discovery-api/and-or-not-queries/discovery']">
+                                <a [routerLinkActive]="['active','navigate-active']">AND/OR/NOT queries</a>
+                            </mat-list-item>
+                            <mat-list-item class="padd" [routerLink]="['/api-doc/discovery-api/tech-queries']">
+                                <a [routerLinkActive]="['active','navigate-active']">Tech queries</a>
+                            </mat-list-item>
+                        </mat-nav-list>
+                    </mat-expansion-panel>
+                </mat-nav-list>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel class="no-shadow my-0">
+                <mat-expansion-panel-header fxLayout="row" [expandedHeight]="expandHeight" [collapsedHeight]="collapseHeight">
+                    <mat-panel-title>
+                        Prospector API
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-nav-list class="ml-0" dense>
+                    <mat-expansion-panel class="no-shadow my-0">
+                        <mat-expansion-panel-header fxLayout="row" [expandedHeight]="expandHeight" [collapsedHeight]="collapseHeight" style="padding-left:25px !important">
+                            <mat-panel-title>
+                                Person search
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <mat-nav-list class="ml-0" dense>
+                            <mat-list-item class="padd" [routerLink]="['/api-doc/Prospector/http-request/prospector']">
+                                <a [routerLinkActive]="['active','navigate-active']">HTTP Request </a>
+                            </mat-list-item>
+                            <mat-list-item class="padd" [routerLink]="['/api-doc/Prospector/http-get-params/prospector']">
+                                <a [routerLinkActive]="['active','navigate-active']">HTTP get params</a>
+                            </mat-list-item>
+                            <mat-list-item class="padd" [routerLink]="['/api-doc/Prospector/response-type']">
+                                <a [routerLinkActive]="['active','navigate-active']">Response type</a>
+                            </mat-list-item>
+                            <mat-list-item class="padd" [routerLink]="['/api-doc/Prospector/response-body/prospector']">
+                                <a [routerLinkActive]="['active','navigate-active']">Response body</a>
+                            </mat-list-item>
+                            <mat-list-item class="padd" [routerLink]="['/api-doc/Prospector/person-attributes']">
+                                <a [routerLinkActive]="['active','navigate-active']">Person attributes</a>
+                            </mat-list-item>
+                        </mat-nav-list>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel class="no-shadow my-0">
+                        <mat-expansion-panel-header fxLayout="row" [expandedHeight]="expandHeight" [collapsedHeight]="collapseHeight" style="padding-left:25px !important">
+                            <mat-panel-title>
+                                Queries
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <mat-nav-list class="ml-0" dense>
+                            <mat-list-item class="padd" [routerLink]="['/api-doc/Prospector/data-type/prospector']">
+                                <a [routerLinkActive]="['active','navigate-active']">Data types</a>
+                            </mat-list-item>
+                            <mat-list-item class="padd" [routerLink]="['/api-doc/Prospector/fields/prospector']">
+                                <a [routerLinkActive]="['active','navigate-active']">Fileds</a>
+                            </mat-list-item>
+                            <mat-list-item class="padd" [routerLink]="['/api-doc/Prospector/and-or-not-queries/prospector']">
+                                <a [routerLinkActive]="['active','navigate-active']">AND/OR/NOT queries</a>
+                            </mat-list-item>
+                        </mat-nav-list>
+                    </mat-expansion-panel>
+                </mat-nav-list>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel class="no-shadow my-0">
+                <mat-expansion-panel-header fxLayout="row" [expandedHeight]="expandHeight" [collapsedHeight]="collapseHeight">
+                    <mat-panel-title>
+                        Risk API
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-nav-list class="ml-0" dense>
+                    <mat-list-item class="padd" [routerLink]="['/api-doc/risk-api/javascript-library']">
+                        <a [routerLinkActive]="['active','navigate-active']">JavaScript library</a>
+                    </mat-list-item>
+                    <mat-expansion-panel class="no-shadow my-0">
+                        <mat-expansion-panel-header fxLayout="row" [expandedHeight]="expandHeight" [collapsedHeight]="collapseHeight" style="padding-left:25px !important">
+                            <mat-panel-title>
+                                Calculate scores
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <mat-nav-list class="ml-0" dense>
+                            <mat-list-item class="padd" [routerLink]="['/api-doc/risk-api/calculate-score/attributes/calculate-risk']">
+                                <a [routerLinkActive]="['active','navigate-active']">Attributes</a>
+                            </mat-list-item>
+                            <mat-list-item class="padd" [routerLink]="['/api-doc/risk-api/calculate-score/http-request/calculate-risk']">
+                                <a [routerLinkActive]="['active','navigate-active']">HTTP Request</a>
+                            </mat-list-item>
+                            <mat-list-item class="padd" [routerLink]="['/api-doc/risk-api/calculate-score/http-post-param/calculate-risk']">
+                                <a [routerLinkActive]="['active','navigate-active']">HTTP post params</a>
+                            </mat-list-item>
+                        </mat-nav-list>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel class="no-shadow my-0">
+                        <mat-expansion-panel-header fxLayout="row" [expandedHeight]="expandHeight" [collapsedHeight]="collapseHeight" style="padding-left:25px !important">
+                            <mat-panel-title>
+                                Flagging
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <mat-nav-list class="ml-0" dense>
+                            <mat-list-item class="padd" [routerLink]="['/api-doc/risk-api/flagging/http-request/flagging-risk']">
+                                <a [routerLinkActive]="['active','navigate-active']">HTTP Request</a>
+                            </mat-list-item>
+                            <mat-list-item class="padd" [routerLink]="['/api-doc/risk-api/flagging/http-post-param/flagging-risk']">
+                                <a [routerLinkActive]="['active','navigate-active']" >HTTP post params</a>
+                            </mat-list-item>
+                        </mat-nav-list>
+                    </mat-expansion-panel>
+                </mat-nav-list>
+            </mat-expansion-panel>
+            <mat-expansion-panel class="no-shadow my-0">
+                <mat-expansion-panel-header fxLayout="row" [expandedHeight]="expandHeight" [collapsedHeight]="collapseHeight">
+                    <mat-panel-title>
+                        reveal API
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-nav-list class="ml-0" dense>
+                    <mat-expansion-panel class="no-shadow my-0">
+                        <mat-expansion-panel-header fxLayout="row" [expandedHeight]="expandHeight" [collapsedHeight]="collapseHeight" style="padding-left:25px !important">
+                            <mat-panel-title>
+                                Lookup IP address
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <mat-nav-list class="ml-0" dense>
+                            <mat-list-item class="padd" [routerLink]="['/api-doc/reveal-api/loopup-ip-address/attributes/reveal']">
+                                <a [routerLinkActive]="['active','navigate-active']">Attributes</a>
+                            </mat-list-item>
+                            <mat-list-item class="padd" [routerLink]="['/api-doc/reveal-api/loopup-ip-address/http-request/reveal']">
+                                <a [routerLinkActive]="['active','navigate-active']">HTTP Request </a>
+                            </mat-list-item>
+                            <mat-list-item class="padd" [routerLink]="['/api-doc/reveal-api/loopup-ip-address/http-get-params/reveal']">
+                                <a [routerLinkActive]="['active','navigate-active']">HTTP get parameters</a>
+                            </mat-list-item>
+                        </mat-nav-list>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel class="no-shadow my-0">
+                        <mat-expansion-panel-header fxLayout="row" [expandedHeight]="expandHeight" [collapsedHeight]="collapseHeight" style="padding-left:25px !important">
+                            <mat-panel-title>
+                                Client side end point
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <mat-nav-list class="ml-0" dense>
+                            <mat-list-item class="padd" [routerLink]="['/api-doc/reveal-api/client-end-point/http-get-params/reveal-client-end-point']">
+                                <a [routerLinkActive]="['active','navigate-active']">HTTP GET parameters</a>
+                            </mat-list-item>
+                            <!-- <mat-list-item class="padd" [routerLink]="['/api-doc/reveal-api/client-end-point/jsonp-response']">
+                                <a [routerLinkActive]="['active','navigate-active']">JSON Response</a>
+                            </mat-list-item>
+                            <mat-list-item class="padd" [routerLink]="['/api-doc/reveal-api/client-end-point/javaScript-variable-response']">
+                                <a [routerLinkActive]="['active','navigate-active']">JavaScript variable Response</a>
+                            </mat-list-item> -->
+                        </mat-nav-list>
+                    </mat-expansion-panel>
+                </mat-nav-list>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel class="no-shadow my-0">
+                <mat-expansion-panel-header fxLayout="row" [expandedHeight]="expandHeight" [collapsedHeight]="collapseHeight">
+                    <mat-panel-title>
+                        Name-Domain API
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-nav-list class="ml-0" dense>
+                    <mat-list-item class="padd" [routerLink]="['/api-doc/name-domain-api/http-request/name-domain']">
+                        <a [routerLinkActive]="['active','navigate-active']">HTTP Request </a>
+                    </mat-list-item>
+                    <mat-list-item class="padd">
+                        <a [routerLinkActive]="['active','navigate-active']" [routerLink]="['/api-doc/name-domain-api/response-code/name-domain']">Response codes</a>
+                    </mat-list-item>
+                    <mat-list-item class="padd" [routerLink]="['/api-doc/name-domain-api/param/name-domain']">
+                        <a [routerLinkActive]="['active','navigate-active']">params</a>
+                    </mat-list-item>
+                    <mat-list-item class="padd" [routerLink]="['/api-doc/name-domain-api/http-response/name-domain']">
+                        <a [routerLinkActive]="['active','navigate-active']">HTTP Response</a>
+                    </mat-list-item>
+                </mat-nav-list>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel class="no-shadow my-0">
+                <mat-expansion-panel-header fxLayout="row" [expandedHeight]="expandHeight" [collapsedHeight]="collapseHeight">
+                    <mat-panel-title>
+                        Autocomplete API
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-nav-list class="ml-0" dense>
+                    <mat-list-item class="padd" [routerLink]="['/api-doc/autocomplete/http-request/autocomplete']">
+                        <a [routerLinkActive]="['active','navigate-active']">HTTP Request </a>
+                    </mat-list-item>
+                    <mat-list-item class="padd" [routerLink]="['/api-doc/autocomplete/http-response/autocomplete']">
+                        <a [routerLinkActive]="['active','navigate-active']">HTTP Response</a>
+                    </mat-list-item>
+                </mat-nav-list>
+            </mat-expansion-panel>
+
+            <!-- <mat-expansion-panel class="no-shadow my-0">
+                <mat-expansion-panel-header fxLayout="row" [expandedHeight]="expandHeight" [collapsedHeight]="collapseHeight">
+                    <mat-panel-title>
+                        Logo API
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-nav-list class="ml-0" dense>
+                    <mat-list-item class="padd" [routerLink]="['/api-doc/logo/http-request/logo']">
+                        <a [routerLinkActive]="['active','navigate-active']">HTTP Request </a>
+                    </mat-list-item>
+                    <mat-list-item class="padd" [routerLink]="['/api-doc/logo/http-get-params/logo']">
+                        <a [routerLinkActive]="['active','navigate-active']">HTTP GET params</a>
+                    </mat-list-item>
+                    <mat-list-item class="padd" [routerLink]="['/api-doc/logo/default-image']">
+                        <a [routerLinkActive]="['active','navigate-active']">default image</a>
+                    </mat-list-item>
+                    <mat-list-item class="padd" [routerLink]="['/api-doc/logo/your-own-image']">
+                        <a [routerLinkActive]="['active','navigate-active']">Specifying your own Logo</a>
+                    </mat-list-item>
+                </mat-nav-list>
+            </mat-expansion-panel> -->
+
+        </mat-accordion>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="template-wrapper">
+            <ng-content></ng-content>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

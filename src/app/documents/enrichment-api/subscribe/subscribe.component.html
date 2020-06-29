@@ -1,0 +1,22 @@
+<div class="row" style="min-height: 100%;">
+    <div class="col-sm-6">
+        <div class="content">
+            <mat-tab-group>
+                <mat-tab label="Docs">
+                    <div style="text-align: justify;">
+                        <div style="margin-top: 4%;">
+                            <p style="text-transform: uppercase;font-weight: 550;">SUBSCRIBE</p>
+                            <p>You can subscribe to changes in people’s information by passing a subscribe parameter when looking up people. Whenever we receive updates, we’ll post them to the webhook url associated with your account. This will count as
+                                an API call.</p>
+                            <p>You can set the webhook url associated with your account in your account’s settings.</p>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Support" disabled></mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+    <div class="col-sm-6" style="background-color: #292D33;padding-left: 0px; padding-right: 0px;">
+        <app-console-prompt [protoType]="subExaxmple"></app-console-prompt>
+    </div>
+</div>

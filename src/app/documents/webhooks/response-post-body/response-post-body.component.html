@@ -1,0 +1,43 @@
+<!-- <app-side-bar> -->
+<div class="row" style="min-height: 100%;">
+    <div class="col-sm-6">
+        <div class="content">
+            <mat-tab-group>
+                <mat-tab label="Docs">
+                    <div style="text-align: justify;">
+                        <app-webhooks></app-webhooks>
+                        <div style="margin-top: 10%;">
+                            <p style="text-transform: uppercase;font-weight: 550;">RESPONSE POST BODY</p>
+                            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                                <!-- code Column -->
+                                <ng-container matColumnDef="attribute">
+                                    <mat-header-cell *matHeaderCellDef> Attribute</mat-header-cell>
+                                    <mat-cell *matCellDef="let element"> {{element.attribute}} </mat-cell>
+                                </ng-container>
+
+                                <!-- description Column -->
+                                <ng-container matColumnDef="description">
+                                    <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+                                    <mat-cell *matCellDef="let element">
+                                        <div [innerHTML]="element.description | safeHtml"></div>
+                                    </mat-cell>
+                                </ng-container>
+
+                                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                            </table>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10%;">
+                        <p>For testing webhooks, we recommend a useful service called Request Bin, which allows you to inspect arbitrary webhook requests.</p>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Support" disabled></mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+    <div class="col-sm-6" style="background-color: #292D33;padding-left: 0px; padding-right: 0px;">
+        <app-console-prompt [protoType]="errorExaxmple"></app-console-prompt>
+    </div>
+</div>
+<!-- </app-side-bar> -->

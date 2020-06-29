@@ -3,14 +3,21 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DocumentsModule } from './documents/documents.module';
+import { Ng2DeviceDetectorModule } from 'ng2-device-detector';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    DocumentsModule,
+    Ng2DeviceDetectorModule.forRoot(),
+
   ],
   providers: [],
   bootstrap: [AppComponent]

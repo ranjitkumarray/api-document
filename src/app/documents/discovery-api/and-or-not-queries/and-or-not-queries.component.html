@@ -1,0 +1,22 @@
+<div class="row" style="min-height: 100%;">
+    <div class="col-sm-6">
+        <div class="content">
+            <mat-tab-group>
+                <mat-tab label="Docs">
+                    <div style="text-align: justify;">
+                        <div style="margin-top: 4%;">
+                            <h3>AND/OR/NOT queries</h3>
+                            <p>By default, queries are are filtered by an AND match. That is, if you provide multiple query options, results must match all of them. You can change this behavior to OR matching (where matches to all criteria are preferred,
+                                but not required) by using a OR query.</p>
+                            <p>The NOT logical operator can also be used to negate any query.</p>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Support" disabled></mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+    <div class="col-sm-6" style="background-color: #292D33;padding-left: 0px; padding-right: 0px;">
+        <app-console-prompt [protoType]="andOrNotQueries"></app-console-prompt>
+    </div>
+</div>

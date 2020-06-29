@@ -1,0 +1,87 @@
+<div class="row" style="min-height: 100%;">
+    <div class="col-sm-6">
+        <div class="content">
+            <mat-tab-group>
+                <mat-tab label="Docs">
+                    <div style="text-align: justify;">
+                        <div style="margin-top: 4%;">
+                            <p style="text-transform: uppercase;font-weight: 550;">DOMAIN LOOKUP</p>
+                            <p>The Company API allows you to look up a company by their domain. Alongside the domain you may also provide any additional attributes you have about the company, such as their company name or twitter handle. Including more detail
+                                will help us be more accurate when searching.
+                                <br> The supported parameters are:
+                            </p>
+                            <table mat-table [dataSource]="domainLookUpData" class="mat-elevation-z8">
+
+                                <ng-container matColumnDef="param">
+                                    <mat-header-cell *matHeaderCellDef> Param</mat-header-cell>
+                                    <mat-cell *matCellDef="let element"> {{element.param}} </mat-cell>
+                                </ng-container>
+
+                                <ng-container matColumnDef="description">
+                                    <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+                                    <mat-cell *matCellDef="let element">
+                                        <div [innerHTML]="element.description | safeHtml"></div>
+                                    </mat-cell>
+                                </ng-container>
+
+                                <mat-header-row *matHeaderRowDef="displayedColumnsForDomainLookUp"></mat-header-row>
+                                <mat-row *matRowDef="let row; columns: displayedColumnsForDomainLookUp;"></mat-row>
+                            </table>
+                        </div>
+                        <div style="margin-top: 10%;">
+                            <table mat-table [dataSource]="httpGetParams" class="mat-elevation-z8">
+                                <ng-container matColumnDef="param">
+                                    <mat-header-cell *matHeaderCellDef> param</mat-header-cell>
+                                    <mat-cell *matCellDef="let element"> {{element.param}} </mat-cell>
+                                </ng-container>
+
+                                <ng-container matColumnDef="description">
+                                    <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+                                    <mat-cell *matCellDef="let element">
+                                        <div [innerHTML]="element.description | safeHtml"></div>
+                                    </mat-cell>
+                                </ng-container>
+
+                                <mat-header-row *matHeaderRowDef="displayedColumnsForDomainLookUp"></mat-header-row>
+                                <mat-row *matRowDef="let row; columns: displayedColumnsForDomainLookUp;"></mat-row>
+                            </table>
+                        </div>
+                        <div style="margin-top: 10%;">
+                            <p>This endpoint retrieves a company by domain name. If we can find the company we’ll return a 200 status containing the record’s attributes.</p>
+                            <p>Sometimes we’ll need to asynchronously lookup the company, in which case we’ll return an empty 202 status. Either try the same request again in a few minutes to get the full response, or register a webhook to be notified when
+                                we’ve finished searching for a company.</p>
+                            <p>If we can’t find any information associated with the domain name, we’ll return a 404 status.</p>
+                            <p style="text-transform: uppercase;font-weight: 550;">HTTP REQUEST</p>
+                            <p>GET <a href="https://company.clearbit.com/v2/companies/find?domain=:domain">https://company.clearbit.com/v2/companies/find?domain=:domain</a></p>
+                            <p>Where :domain is the company’s domain name.</p>
+                            <p style="text-transform: uppercase;font-weight: 550;">HTTP GET PARAMS</p>
+                            <p>You can also pass the following optional parameters along when looking up companies.</p>
+                            <table mat-table [dataSource]="responseType" class="mat-elevation-z8">
+
+                                <ng-container matColumnDef="code">
+                                    <mat-header-cell *matHeaderCellDef> code</mat-header-cell>
+                                    <mat-cell *matCellDef="let element"> {{element.code}} </mat-cell>
+                                </ng-container>
+
+                                <ng-container matColumnDef="description">
+                                    <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+                                    <mat-cell *matCellDef="let element">
+                                        <div [innerHTML]="element.description | safeHtml"></div>
+                                    </mat-cell>
+                                </ng-container>
+
+                                <mat-header-row *matHeaderRowDef="displayedColumnsResponseType"></mat-header-row>
+                                <mat-row *matRowDef="let row; columns: displayedColumnsResponseType;"></mat-row>
+                            </table>
+                        </div>
+
+                    </div>
+                </mat-tab>
+                <mat-tab label="Support" disabled></mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+    <div class="col-sm-6" style="background-color: #292D33;padding-left: 0px; padding-right: 0px;">
+        <app-console-prompt [protoType]="domainPromptData"></app-console-prompt>
+    </div>
+</div>

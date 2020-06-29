@@ -1,0 +1,42 @@
+<!-- <app-side-bar> -->
+<div class="row" style="min-height: 100%;">
+    <div class="col-sm-6">
+        <div class="content">
+            <mat-tab-group>
+                <mat-tab label="Docs">
+                    <div style="text-align: justify;">
+                        <div style="margin-top: 4%;">
+                            <h4>Securing webhooks</h4>
+                            <p>To validate a webhook came from Clearbit we suggest verifying the webhook payloads with the X-Request-Signature header (which we pass with every webhook). If you’re using one of our client bindings to parse webhooks, say the
+                                Ruby library, we’ll do this for you.</p>
+                        </div>
+                        <div style="margin-top: 10%;">
+                            <p style="text-transform: uppercase;font-weight: 550;">RESPONSE POST BODY</p>
+                            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                                <!-- code Column -->
+                                <ng-container matColumnDef="header">
+                                    <mat-header-cell *matHeaderCellDef> Header</mat-header-cell>
+                                    <mat-cell *matCellDef="let element"> {{element.header}} </mat-cell>
+                                </ng-container>
+
+                                <!-- description Column -->
+                                <ng-container matColumnDef="name">
+                                    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                                    <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
+                                </ng-container>
+
+                                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                            </table>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Support" disabled></mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+    <div class="col-sm-6" style="background-color: #292D33;padding-left: 0px; padding-right: 0px;">
+        <app-console-prompt [protoType]="errorExaxmple"></app-console-prompt>
+    </div>
+</div>
+<!-- </app-side-bar> -->

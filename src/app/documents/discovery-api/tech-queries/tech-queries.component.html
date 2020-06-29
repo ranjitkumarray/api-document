@@ -1,0 +1,21 @@
+<div class="row" style="min-height: 100%;">
+    <div class="col-sm-6">
+        <div class="content">
+            <mat-tab-group>
+                <mat-tab label="Docs">
+                    <div style="text-align: justify;">
+                        <div style="margin-top: 4%;">
+                            <h3>Tech queries</h3>
+                            <p>Whenever we index a domain, we also detect any technologies the company uses internally and for its websites. We then surface over 500 different technologies in our search API letting you filter by them.</p>
+                            <p>You can find a full list of technologies we index here.</p>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Support" disabled></mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+    <div class="col-sm-6" style="background-color: #292D33;padding-left: 0px; padding-right: 0px;">
+        <app-console-prompt [protoType]="techQueriesPrompt"></app-console-prompt>
+    </div>
+</div>

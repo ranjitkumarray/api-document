@@ -1,0 +1,38 @@
+<div class="row" style="min-height: 100%;">
+    <div class="col-sm-6">
+        <div class="content">
+            <mat-tab-group>
+                <mat-tab label="Docs">
+                    <div style="text-align: justify;">
+                        <div style="margin-top: 4%;">
+                            <p style="text-transform: uppercase;font-weight: 550;">sorting</p>
+                            <p>By default search results are sorted by the best match available. You can change this to a specific sort using the sort parameter and one of the values below.</p>
+                            <p>You can toggle between ascending and descending sorts by appending _asc and _desc respectively.</p>
+                            <table mat-table [dataSource]="dataForSorting" class="mat-elevation-z8">
+
+                                <ng-container matColumnDef="sort">
+                                    <mat-header-cell *matHeaderCellDef> Sort</mat-header-cell>
+                                    <mat-cell *matCellDef="let element"> {{element.sort}} </mat-cell>
+                                </ng-container>
+
+                                <ng-container matColumnDef="description">
+                                    <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+                                    <mat-cell *matCellDef="let element">
+                                        <div [innerHTML]="element.description | safeHtml"></div>
+                                    </mat-cell>
+                                </ng-container>
+
+                                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                            </table>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Support" disabled></mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+    <div class="col-sm-6" style="background-color: #292D33;padding-left: 0px; padding-right: 0px;">
+        <app-console-prompt [protoType]="sortingExample"></app-console-prompt>
+    </div>
+</div>

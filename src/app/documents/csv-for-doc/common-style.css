@@ -1,0 +1,66 @@
+.content {
+    position: relative;
+    z-index: 30;
+}
+
+.content p,
+.content li,
+.content dt,
+.content dd {
+    line-height: 1.6;
+    color: #825540;
+}
+
+.content>h1,
+.content>h2,
+.content>h3,
+.content>h4,
+.content>h5,
+.content>h6,
+.content>p,
+.content>table,
+.content>ul,
+.content>ol,
+.content>aside,
+.content>dl,
+.content>.wrap {
+    padding: 0 28px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+}
+
+.content h3 {
+    padding-top: 4%;
+    font-weight: 400;
+    color: #282044;
+}
+
+.content h4 {
+    padding-top: 4%;
+    font-weight: 400;
+    color: #282044;
+}
+
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
+    height: -webkit-fill-available !important;
+}
+
+.col-sm-6 {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 2%;
+}
+
+::ng-deep mat-cell {
+    padding: 2%;
+}
